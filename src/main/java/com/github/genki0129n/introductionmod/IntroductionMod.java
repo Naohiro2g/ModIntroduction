@@ -15,19 +15,15 @@ import org.slf4j.Logger;
 
 @Mod(IntroductionMod.MOD_ID)
 public class IntroductionMod {
-    public static final String MOD_ID = "introductionmod";
+    public static final String MOD_ID = "introduction_mod";
     private static final Logger LOGGER = LogUtils.getLogger();
-
 
     public IntroductionMod() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
-
         modEventBus.addListener(this::commonSetup);
-
         MinecraftForge.EVENT_BUS.register(this);
-
         modEventBus.addListener(this::addCreative);
-
+        LOGGER.info("this is {}", MOD_ID);
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {
