@@ -13,13 +13,13 @@ import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.slf4j.Logger;
 
-@Mod(introductionmod.MOD_ID)
-public class introductionmod {
-    public static final String MOD_ID = "Introductionmod";
+@Mod(IntroductionMod.MOD_ID)
+public class IntroductionMod {
+    public static final String MOD_ID = "introductionmod";
     private static final Logger LOGGER = LogUtils.getLogger();
 
 
-    public introductionmod() {
+    public IntroductionMod() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
         modEventBus.addListener(this::commonSetup);
