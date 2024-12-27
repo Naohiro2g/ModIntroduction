@@ -205,3 +205,18 @@ publishing {
 tasks.withType(JavaCompile).configureEach {
     options.encoding = 'UTF-8' // Use the UTF-8 charset for Java compilation
 }
+
+// to prevent vulnerability in commons-io, commons-compress, netty-common
+configurations.configureEach {
+    resolutionStrategy.eachDependency { DependencyResolveDetails details ->
+        if (details.requested.group == 'commons-io' && details.requested.name == 'commons-io') {
+            details.useVersion '[2.14.0,)'
+        }
+        if (details.requested.group == 'org.apache.commons' && details.requested.name == 'commons-compress') {
+            details.useVersion '[1.26.0,)'
+        }
+        if (details.requested.group == 'io.netty' && details.requested.name == 'netty-common') {
+            details.useVersion '[4.1.97.Final,)'
+        }
+    }
+}
